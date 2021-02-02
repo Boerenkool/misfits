@@ -87,3 +87,21 @@ class BaseTool (object) :
         _(l)
 
         return l
+
+    def _zip_nested_lists(self, *l):
+
+        zl = []
+
+        def _(zl, l):
+
+            for i in range(len(l)):
+
+                if isinstance(l[i][0], list):
+                    zl.append([])
+                    _(zl[-1], list(zip(*l[i])))
+                else:
+                    zl.append(l[i])
+
+        _(zl, list(zip(*l)))
+
+        return zl

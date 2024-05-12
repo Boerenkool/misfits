@@ -1,7 +1,6 @@
 import numpy as np
 
-from scipy.signal import convolved
-from scipy.signal.windows import gaussian
+from scipy.signal import gaussian, convolve
 
 from .boxcar import Boxcar
 
